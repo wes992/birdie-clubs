@@ -1,0 +1,10 @@
+// Import Swiper styles
+@import "swiper/swiper-bundle.min.css";
+
+.swiper {
+  height: inherit;
+
+  .slider-item {
+    max-height: 90%;
+  }
+}

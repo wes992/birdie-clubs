@@ -8,7 +8,7 @@ const Releases = ({}) => {
       {newReleases.map((release) => (
         <OverviewCard
           key={release.id}
-          link={`/clubs/details:${release.id}`}
+          link={`/clubs/details/${release.id}`}
           item={release}
         />
       ))}
