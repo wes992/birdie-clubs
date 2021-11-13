@@ -1,0 +1,24 @@
+.releases {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: column; */
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.25);
+
+  &-card {
+    min-height: 500px;
+    max-width: 300px;
+    margin: map-get($spacers, 4);
+
+    &__img {
+      height: 214px;
+      padding: map-get($spacers, 2);
+    }
+
+    &__list {
+      padding: map-get($spacers, 3);
+      text-align: left;
+    }
+  }
+}
