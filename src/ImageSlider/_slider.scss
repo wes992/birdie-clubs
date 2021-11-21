@@ -8,3 +8,24 @@
     max-height: 90%;
   }
 }
+
+.carousel-item {
+  max-height: 310px;
+  overflow: hidden;
+  &__image {
+    max-height: inherit;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: map-get($spacers, 3);
+  }
+}
+.carousel-indicators [data-bs-target] {
+  background-color: #41464b;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  &-icon {
+    background-color: #41464b;
+  }
+}

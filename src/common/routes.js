@@ -25,12 +25,12 @@ const routes = [
     path: "/balls",
     content: "",
   },
-  {
-    id: "accessories",
-    text: "Accessories",
-    path: "/accessories",
-    content: "",
-  },
+  // {
+  //   id: "accessories",
+  //   text: "Accessories",
+  //   path: "/accessories",
+  //   content: "",
+  // },
 ];
 
 export default routes;

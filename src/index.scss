@@ -1,9 +1,10 @@
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
+@import "bootstrap/dist/css/bootstrap.min.css";
 
 @import "./Nav/navbar";
 @import "./User/userActions";
 @import "./Home/home";
 @import "./Releases/releases";
 @import "./ImageSlider/slider";
-@import "./Clubs/clubs";
+@import "./Items/items";

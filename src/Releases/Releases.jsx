@@ -1,14 +1,13 @@
-import React from "react";
-import { newReleases } from "../assets/newReleases";
+import React, { useState, useEffect } from "react";
 import { OverviewCard } from "./OverviewCard";
 
-const Releases = ({}) => {
+const Releases = ({ newReleases }) => {
   return (
     <div className="releases">
       {newReleases.map((release) => (
         <OverviewCard
           key={release.id}
-          link={`/clubs/details/${release.id}`}
+          link={`/clubs/${release.id}`}
           item={release}
         />
       ))}
