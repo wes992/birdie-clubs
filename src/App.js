@@ -1,29 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Nav } from "./Nav";
 import { Home } from "./Home";
 import { ItemList } from "./Items";
-import { database } from "./firebase";
 
 import "./App.css";
 import "./common/FontAwesome";
+import { CartState } from "./Context/Context";
 
 function App() {
-  const clubsRef = database.ref("clubs");
-  const ballsRef = database.ref("balls");
-
-  const [allClubs, setAllClubs] = useState([]);
-  const [balls, setBalls] = useState([]);
-
-  useEffect(() => {
-    clubsRef.on("value", (snapshot) => {
-      setAllClubs((allClubs) => [...allClubs, ...snapshot.val()]);
-    });
-
-    ballsRef.on("value", (snapshot) => {
-      setBalls(snapshot.val());
-    });
-  }, []);
+  const {
+    dbData: { balls = [], clubs: allClubs = [] },
+  } = CartState();
 
   return (
     <div className="App">
