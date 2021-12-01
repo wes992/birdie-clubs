@@ -6,34 +6,36 @@ import React, {
   useReducer,
 } from "react";
 import { config } from "../config";
+import { setItems } from "./actions";
 
-import { cartReducer } from "./reducers";
+import { contextReducer } from "./reducers";
 
-export const CartContext = createContext();
+export const ItemsContext = createContext();
 
 const Context = ({ children }) => {
-  const [dbData, setDbData] = useState({});
-  const [state, dispatch] = useReducer(cartReducer, {
+  const [state, dispatch] = useReducer(contextReducer, {
     cart: [],
+    balls: [],
+    clubs: [],
   });
 
   useEffect(() => {
     fetch(config.databaseURL + ".json")
       .then((response) => response.json())
       .then((data) => {
-        setDbData(data);
+        dispatch(setItems(data));
       });
   }, []);
 
   return (
-    <CartContext.Provider value={{ state, dispatch, dbData }}>
+    <ItemsContext.Provider value={{ ...state, dispatch }}>
       {children}
-    </CartContext.Provider>
+    </ItemsContext.Provider>
   );
 };
 
 export { Context };
 
-export const CartState = () => {
-  return useContext(CartContext);
+export const ItemsState = () => {
+  return useContext(ItemsContext);
 };
