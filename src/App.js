@@ -6,12 +6,10 @@ import { ItemList } from "./Items";
 
 import "./App.css";
 import "./common/FontAwesome";
-import { CartState } from "./Context/Context";
+import { ItemsState } from "./Context/Context";
 
 function App() {
-  const {
-    dbData: { balls = [], clubs: allClubs = [] },
-  } = CartState();
+  const { balls, clubs: allClubs } = ItemsState();
 
   return (
     <div className="App">

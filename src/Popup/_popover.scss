@@ -1,0 +1,14 @@
+.popover-container {
+  &__button {
+    color: inherit;
+    font-size: inherit;
+
+    &:hover {
+      color: inherit;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
