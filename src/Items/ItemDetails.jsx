@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { InputSelect } from "../common/InputSelect";
 import { addToCart } from "../Context/actions";
-import { CartState } from "../Context/Context";
+import { ItemsState } from "../Context/Context";
 
 import { ImageSlider } from "../ImageSlider";
 
@@ -15,10 +15,7 @@ const ItemDetails = ({ item, onClose }) => {
     }
   };
 
-  const {
-    state: { cart },
-    dispatch,
-  } = CartState();
+  const { cart, dispatch } = ItemsState();
 
   console.log("cart", cart);
 
@@ -36,7 +33,7 @@ const ItemDetails = ({ item, onClose }) => {
     const selectionDetails = {
       ...selection,
       quantity: Number(selection.quantity),
-      id,
+      ...item,
     };
 
     const alreadyInCart = cart.find(
