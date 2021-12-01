@@ -1,0 +1,14 @@
+.cart {
+  &-item {
+    $this: ".cart-item";
+
+    width: 100%;
+    // margin-bottom: map-get($spacers, 3);
+    display: flex;
+    justify-content: space-between;
+
+    + #{$this} {
+      margin-top: map-get($spacers, 3);
+    }
+  }
+}
