@@ -18,12 +18,3 @@ root.render(
     </Context>
   </React.StrictMode>
 );
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <Context>
-//       <App />
-//     </Context>
-//   </React.StrictMode>,
-//   document.getElementById("root")
-// );

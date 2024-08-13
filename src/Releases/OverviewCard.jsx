@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ImageSlider } from "../ImageSlider";
 
 const OverviewCard = ({ imageSlider = false, item, link = false }) => {
-  const { id, brand, model, details, photos } = item;
+  const { id, brand, model, details = [], photos } = item;
 
   const _details = details.slice(0, 3);
   return (

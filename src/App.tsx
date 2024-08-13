@@ -7,35 +7,21 @@ import { ItemList } from "./Items";
 import "./App.css";
 import "./common/FontAwesome";
 import { COLLECTIONS, get } from "./firebase";
+import { newReleases } from "./assets/newReleases";
 
 function App() {
-  // const clubsRef = database.ref("clubs");
-  // const ballsRef = database.ref("balls");
-
-  const [allClubs, setAllClubs] = useState<any[]>([]);
+  const [allClubs, setAllClubs] = useState<any[]>(newReleases);
   const [balls, setBalls] = useState([]);
-
-  // useEffect(() => {
-  //   clubsRef.on("value", (snapshot) => {
-  //     setAllClubs((allClubs) => [...allClubs, ...snapshot.val()]);
-  //   });
-
-  //   ballsRef.on("value", (snapshot) => {
-  //     setBalls(snapshot.val());
-  //   });
-  // }, []);
 
   useEffect(() => {
     const fetchItems = async () => {
       const items = await get(COLLECTIONS.CLUBS);
 
-      setAllClubs(items ?? [{ name: "me" }]);
+      setAllClubs(items);
     };
 
     fetchItems();
   }, []);
-
-  console.log({ allClubs });
 
   return (
     <div className="App">
@@ -47,7 +33,7 @@ function App() {
             path="/new-releases"
             element={
               <ItemList
-                items={allClubs.filter((clubs) => !!clubs?.newRelease)}
+                items={allClubs.filter((club) => Boolean(club?.newRelease))}
                 returnPath={"/new-releases"}
               />
             }
@@ -56,7 +42,7 @@ function App() {
             path="/new-releases/:id"
             element={
               <ItemList
-                items={allClubs.filter((clubs) => !!clubs?.newRelease)}
+                items={allClubs.filter((club) => Boolean(club?.newRelease))}
                 returnPath={"/new-releases"}
               />
             }
